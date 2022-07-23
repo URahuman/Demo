@@ -1,0 +1,50 @@
+<dashboard version="1.1">
+  <label>First dashboard</label>
+  <description>First_dashboard</description>
+  <row>
+    <panel>
+      <chart>
+        <title>Top VendorCountry</title>
+        <search>
+          <query>index=vendor | top VendorCountry</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="charting.chart">bar</option>
+        <option name="charting.drilldown">none</option>
+        <option name="height">372</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+    <panel>
+      <map>
+        <title>Cluster Map</title>
+        <search>
+          <query>index=vendor | geostats latfield=VendorLatitude longfield=VendorLongitude count by VendorCountry</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="height">337</option>
+        <option name="mapping.type">marker</option>
+      </map>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <map>
+        <title>Vendor geo Distribution</title>
+        <search>
+          <query>index="vendor" | stats count by VendorCountry | geom geo_countries featureIdField=VendorCountry</query>
+          <earliest>0</earliest>
+          <latest></latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="mapping.choroplethLayer.colorMode">categorical</option>
+        <option name="mapping.choroplethLayer.maximumColor">0x602CA1</option>
+        <option name="mapping.type">choropleth</option>
+        <option name="refresh.display">progressbar</option>
+      </map>
+    </panel>
+  </row>
+</dashboard>

@@ -1,0 +1,18 @@
+[app/ui]
+version = 9.0.0
+modtime = 1657864005.549245100
+
+[app/launcher]
+version = 9.0.0
+modtime = 1657864005.590219000
+
+[nav/default]
+version = 9.0.0
+modtime = 1657879120.058789900
+
+[views/first_dashboard]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = rahuman
+version = 9.0.0
+modtime = 1657878837.254938300
